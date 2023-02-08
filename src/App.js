@@ -1,24 +1,23 @@
-import React, { useState } from 'react';
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
-import { Button, Tooltip } from '@material-ui/core';
+import React, { Fragment } from 'react';
+import { Route, Routes } from "react-router-dom";
+import Register from './components/Register';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import  Login  from './components/Login';
 const App=()=>{
-  const [Count,Setcount]=useState(0)
-
-  const Inrem=()=>{
-    Setcount(Count+1);
-  }
-  const Derem=()=>{
-    if(Count>0)
-    {
-    Setcount(Count-1);
-    }else{
-      alert("Reached to zero!!")
-        }
-  }
+ 
   return (
   <>
-  <div className='main_div'>
+   
+   <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<Register />}></Route>
+        <Route path="/Login" element={<Login />}></Route>
+        <Route path="/Register" element={<Register />}></Route>
+    </Routes>
+    </BrowserRouter>
+   
+  {/* <div className='main_div'>
   <div className='card_div'>
   <h1>{Count}</h1>
   <div className='btn_div'>
@@ -32,7 +31,7 @@ const App=()=>{
   </Tooltip>
   </div>
   </div>
-  </div>
+  </div> */}
   </>
   );
 }
