@@ -5,7 +5,6 @@ import TextField from '@mui/material/TextField';
 import { useNavigate, useRouteError } from "react-router-dom";
 import { useState } from "react";
 
-
 export default function Register()
 {
     const [name , setName] = useState();
@@ -16,9 +15,9 @@ export default function Register()
     }
 
     const HandleRegister = (e)=>{
-        
+
         navigate("Login");
-        
+
     }
     return (
         <>

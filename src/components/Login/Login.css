@@ -1,0 +1,7 @@
+.login_div{
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    margin:20px 0px 0px 150px;
+    flex-direction: column;
+  }
