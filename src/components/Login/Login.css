@@ -1,0 +1,9 @@
+.login_div{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+.Icon{
+    display: flex;
+}
