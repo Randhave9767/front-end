@@ -1,10 +1,10 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
 import PasswordField from '@mui/material/TextField';
 import { useNavigate, useRouteError } from "react-router-dom";
 import { useState } from "react";
+import "../Register/Register.css";
+import pic from "../Images/Register.png";
 
 export default function Register()
 {
@@ -39,13 +39,11 @@ export default function Register()
         setFormErrors((er)=>({
             ...errors
         }));
-
         const details = {...userDetails};
         details.username = e.target.value;
         setDetails((d)=>({
             ...details
         }));
-       
     }
 
     const handleEmail = (e)=>{
@@ -94,8 +92,6 @@ export default function Register()
             errors.validConfirmPassword = "Password and confirm password should be same";
         }
         setFormErrors(errors);
-
-        
     }
 
     const handlePhoneNo = (e)=>{
@@ -119,8 +115,6 @@ export default function Register()
 
     const validateRequiredField = (values) => {
         const errors = {};
-       
-
         if (!values.username)
           errors.username = "username is required";
     
@@ -141,7 +135,6 @@ export default function Register()
       }
 
     const HandleRegister = (e)=>{
-        
         validateRequiredField(userDetails);
         
         if(formErrors.userExists == "available"){
@@ -149,33 +142,21 @@ export default function Register()
         }else{
             alert(formErrors);
         }
-
         // if(Object.keys(requiredFieldErrors).length == 0){
-            
-
         //     navigate("Login");
         // }else{
-            
         //     alert("all fields are required");
         // }
-    
     }
 
 
     return (
         <>
         {/* <h1>{requiredFieldErrors.username}</h1> */}
-        <Box component="form"
-        sx={{
-        '& .MuiTextField-root': {  width: '25ch'},
-        }}
-        
-        >
+        <div className="main1">
         <div className="form_div">
             <h2>Create an account</h2>
             <h5>Connect with your friends today!</h5><br/>
-            
-            
             <TextField required id="outlined-basic" label="Username" variant="outlined" onChange={handleName}/><br/>
             {formErrors.userExists}
             {formErrors.validUsername}
@@ -187,10 +168,12 @@ export default function Register()
             {formErrors.validPassword}
             <TextField required type="password" id="outlined-basic" label="Confirm-Password" variant="outlined" onChange={handleConfirmPassword}/><br/>
             {formErrors.validConfirmPassword}
-            <Button variant="contained" type="submit" onClick={HandleRegister}>Sign Up</Button>
-            
+            <button type="submit" onClick={HandleRegister}>Register</button>
         </div>
-        </Box>
+        <div className="Icon1">
+                <img src={pic} alt="icon"></img>
+        </div>
+        </div>
         </>
     )
 }

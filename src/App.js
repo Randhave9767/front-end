@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Route, Routes } from "react-router-dom";
-import Register from './components/Register';
+import Register from './components/Register/Register';
 import { BrowserRouter } from 'react-router-dom';
 import  Login  from './components/Login/Login';
 const App=()=>{

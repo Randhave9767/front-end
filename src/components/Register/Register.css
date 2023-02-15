@@ -1,0 +1,21 @@
+.form_div{
+    margin: 30px 0px 0px 150px; 
+    height:fit-content;
+    width:fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  .Icon1
+  {
+    display: flex;
+    margin-left: 100px;
+  }
+  .main1
+  {
+    display: flex;
+    width: 100%;
+    position: relative;
+  }
