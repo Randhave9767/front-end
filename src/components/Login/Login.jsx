@@ -6,7 +6,7 @@ import pic from "../Images/Login.png";
 import "../Login/Login.css";
 import Link from "@mui/material/Link";
 
-export default function login(){
+export default function Login(){
     return(
     <>   
     <div className="main">
