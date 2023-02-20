@@ -4,7 +4,10 @@ import PasswordField from '@mui/material/TextField';
 import { useNavigate, useRouteError } from "react-router-dom";
 import { useState } from "react";
 import "../Register/Register.css";
-import pic from "../Images/Register.png";
+import pic from "../Images/Register1.png";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 
 export default function Register()
 {
@@ -26,7 +29,7 @@ export default function Register()
         if(usernames.includes(e.target.value)){
            errors.userExists = "username is taken";   
         }else{
-            errors.userExists = "available";
+            errors.userExists = "";
         }
 
         const usernameRegex = new RegExp(/^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/);
@@ -137,10 +140,11 @@ export default function Register()
     const HandleRegister = (e)=>{
         validateRequiredField(userDetails);
         
-        if(formErrors.userExists == "available"){
+        if(formErrors.userExists == ""){
             navigate("Login");
         }else{
-            alert(formErrors);
+            alert(formErrors.userExists+" "+formErrors.validUsername+" "
+             + formErrors.validEmail + " " + formErrors.validPassword  );
         }
         // if(Object.keys(requiredFieldErrors).length == 0){
         //     navigate("Login");
@@ -152,28 +156,32 @@ export default function Register()
 
     return (
         <>
-        {/* <h1>{requiredFieldErrors.username}</h1> */}
-        <div className="main1">
+         <div className="main1">
+        
         <div className="form_div">
-            <h2>Create an account</h2>
-            <h5>Connect with your friends today!</h5><br/>
-            <TextField required id="outlined-basic" label="Username" variant="outlined" onChange={handleName}/><br/>
-            {formErrors.userExists}
-            {formErrors.validUsername}
-            <TextField required type="email" id="outlined-basic" label="Email" variant="outlined" onChange={handleEmail}/><br/>
-            {formErrors.validEmail}
-            <TextField required id="outlined-basic" label="Phone No." variant="outlined" onChange={handlePhoneNo}/><br/>
-            {formErrors.validPhone}
-            <TextField required type="password" id="outlined-basic" label="Password" variant="outlined" onChange={handlePassword}/><br/>
-            {formErrors.validPassword}
-            <TextField required type="password" id="outlined-basic" label="Confirm-Password" variant="outlined" onChange={handleConfirmPassword}/><br/>
-            {formErrors.validConfirmPassword}
-            <button type="submit" onClick={HandleRegister}>Register</button>
-        </div>
+            <div id="create-account">Create an account</div>
+            <TextField required id="outlined-basic" label="Username" variant="outlined" onChange={handleName} className="inp-field"/><br/>
+           <span className="error-msg"> {formErrors.userExists} </span>
+           <span className="error-msg">{formErrors.validUsername}</span>
+            <TextField required type="email" className="inp-field" id="outlined-basic" label="Email" variant="outlined" onChange={handleEmail}/><br/>
+            <span className="error-msg">{formErrors.validEmail}</span>
+            <TextField required className="inp-field" id="outlined-basic" label="Phone No." variant="outlined" onChange={handlePhoneNo}/><br/>
+            <span className="error-msg">{formErrors.validPhone}</span>
+            <TextField required type="password" className="inp-field" id="outlined-basic" label="Password" variant="outlined" onChange={handlePassword}/><br/>
+            <span className="error-msg">{formErrors.validPassword}</span>
+            <TextField required type="password" className="inp-field" id="outlined-basic" label="Confirm-Password" variant="outlined" onChange={handleConfirmPassword}/><br/>
+            <span className="error-msg">{formErrors.validConfirmPassword}</span>
+            <button type="submit" className="register-btn" onClick={HandleRegister}>Register</button>
+            
+            <div id="#login-msg">
+                Already registered user?
+                <a href="#Login">Login</a>
+            </div>
+            </div>
         <div className="Icon1">
                 <img src={pic} alt="icon"></img>
         </div>
-        </div>
+        </div> 
         </>
     )
 }

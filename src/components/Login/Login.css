@@ -1,9 +1,143 @@
-.login_div{
+.login_div {
+
+
+ 
+
     display: flex;
+
+
+ 
+
     flex-direction: column;
-    width: fit-content;
+
+
+ 
+
     height: fit-content;
+
+
+ 
+
+    padding-top: 10%;
+
+
+ 
+
+    margin-left: 8%;
+
+
+ 
+
 }
-.Icon{
+
+
+ 
+
+.formfield{
+
+
+ 
+
+    width: 65%;
+
+}
+
+
+ 
+
+.Icon {
+
+
+ 
+
+   
+
+    /* width: 60%;  */
+
+   
+
+
+ 
+
+   padding-top: 5%;
+
+   padding-bottom: 2%;
+
+   
+
+
+ 
+
+}
+
+
+ 
+
+.remember{
+
+
+ 
+
     display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+ 
+
+.error_msg{
+
+
+ 
+
+    color: red
+
+}
+
+
+ 
+
+#loginsubmitbutton{
+
+
+ 
+
+    background-color: rgba(249, 69, 4, 0.756);
+
+    border-radius: 10px;
+
+   
+
+}
+
+
+ 
+
+#gotoregisterlink{
+
+
+ 
+
+    margin-top: 2%;
+
+    text-align: center;
+
+   
+
+}
+
+
+ 
+
+#gotoregisterlink label{
+
+
+ 
+
+    margin-right: 10px;
+
+    color: rgb(71, 69, 69);
+
 }

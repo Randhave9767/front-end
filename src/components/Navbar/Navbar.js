@@ -10,18 +10,20 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "bootstrap";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import Register from "../Register/Register";
+import Home from "../Home/Home";
 
 
 export default function Navbar_() {
 
-    const [pages, setPage] = useState("");
+    const [pages, setPage] = useState("Home");
 
     return (<>
 
         <Navbar bg="white" sticky="top">
             <Container>
 
-                <Navbar.Brand href="#Home" className="me-auto auto"><Header /></Navbar.Brand>
+                <Navbar.Brand className="me-auto auto"><Header /></Navbar.Brand>
                 {/* <Navbar.Brand href="#home" className="me-auto">Auto</Navbar.Brand> */}
 
                 <Nav className="ml-auto">
@@ -44,7 +46,12 @@ export default function Navbar_() {
                         () => {
                             setPage("Login");
                         }
-                    } className="NavLink">Log in</Nav.Link>
+                    } className="NavLink">Login</Nav.Link>
+                    <Nav.Link href="#SignUp" onClick={
+                        () => {
+                            setPage("Register");
+                        }
+                    } className="NavLink">SignUp</Nav.Link>
                 </Nav>
             </Container>
         </Navbar>
@@ -60,7 +67,7 @@ function NavContent(props) {
         <div>
 
             {props.page == "Home" ?
-                <h1>Home Page</h1>
+                <h1><Home/></h1>
                 : <></>}
             {props.page == "Doc" ?
                 <h1>Documentation Page</h1>
@@ -70,6 +77,9 @@ function NavContent(props) {
                 : <></>}
             {props.page == "Login" ?
                 <Login/>
+                : <></>}
+            {props.page == "Register" ?
+                <Register/>
                 : <></>}
 
             
